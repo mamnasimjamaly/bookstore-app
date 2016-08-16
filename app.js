@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var BodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
+Genre = require('./models/genre');
 //Connect to mongoose
 mongoose.connect('mongodb://localhost/bookstore');
 var db = mongoose.connection;
@@ -12,7 +12,12 @@ app.get('/' , function(req,res) {
 });
 
 app.get('/api/genres' , function(req, res){
-	res.send("In genres");
+	Genre.getGenres(function(err, genres){
+		if(err) {
+			throw err;
+		}
+		res.json(genres);
+ 	});
 });
 
 app.listen(9000);
