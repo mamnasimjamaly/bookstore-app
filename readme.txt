@@ -1,0 +1,1 @@
+This is a restFul api to creade, record, update, delete (CRUD) from a mongoDB db using node and mongoose. The back-end has been completed in this project. The next step is to create the front-end using angular.  
