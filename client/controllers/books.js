@@ -7,4 +7,18 @@ myApp.controller('BooksController', ['$scope', '$http', '$location', '$routePara
 			$scope.books = response;
 		});
 	};
+	
+	$scope.getBook = function() {
+		var id = $routeParams.id;
+		$http.get('/api/books/' + id).success(function(response){
+			$scope.book = response;
+		});
+	};
+
+	$scope.addBook = function() {
+		$http.post('api/books/' , $scope.book).success(function(response) {
+			window.location.href = "#/";
+		});
+	};
+
 }]);

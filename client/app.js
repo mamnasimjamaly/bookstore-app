@@ -1,19 +1,21 @@
 var myApp = angular.module('myApp' , ['ngRoute']);
 
 myApp.config(function($routeProvider){
-	$routeProvider.when('/', {
+	console.log("route provider");
+	$routeProvider
+	.when('/', {
 		controller 		: 'BooksController',
 		templateUrl 	: 'views/books.html' 
 	})
-	.when ('/books', {
+	.when ('/books/details/:id', {
 		controller 		: 'BooksController',
 		templateUrl 	: 'views/book_details.html' 
 	})
 	.when ('/books/add', {
 		controller 		: 'BooksController',
-		templateUrl 	: 'views/edit_book.html' 
+		templateUrl 	: 'views/add_book.html' 
 	})
 	.otherwise({
-		redirectTo	 	: ('/')
+		redirectTo	 : ('/')
 	});
 });
