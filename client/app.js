@@ -15,6 +15,11 @@ myApp.config(function($routeProvider){
 		controller 		: 'BooksController',
 		templateUrl 	: 'views/add_book.html' 
 	})
+	.when('/books/edit/:id',{
+		controller 		: 'BooksController',
+		templateUrl		: 'views/edit_book.html'  
+	})
+
 	.otherwise({
 		redirectTo	 : ('/')
 	});
